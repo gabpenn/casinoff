@@ -1,0 +1,40 @@
+CASINO (versión para Cloudflare)
+Fichas virtuales, sin plata real. Corre solo en internet, gratis, con una dirección
+tipo https://casino.TU-USUARIO.workers.dev. Las cuentas, las fichas y el azar quedan
+en los servidores de Cloudflare (ahí se decide todo, el navegador solo dibuja).
+
+PASO 1: SUBIR LA CARPETA A GITHUB
+1. En github.com tocá "New" y creá un repositorio llamado casino (puede ser privado).
+2. Descomprimí este zip. Entrá al repositorio nuevo, tocá "Add file", "Upload files"
+   y arrastrá TODO lo que hay adentro de la carpeta (public, lib, games, src, test,
+   config.js, routes.js, package.json, wrangler.jsonc y .gitignore). Tocá "Commit changes".
+   Ojo: la carpeta public tiene un archivo llamado _headers, asegurate de que suba.
+
+PASO 2: CONECTARLO EN CLOUDFLARE
+1. En dash.cloudflare.com andá a "Workers & Pages" y tocá "Create".
+2. Elegí "Import a repository" (conectar con GitHub) y seleccioná el repositorio casino.
+3. El nombre del proyecto tiene que ser casino (igual al de wrangler.jsonc).
+   Dejá el comando de build vacío y el de deploy como viene (npx wrangler deploy).
+4. Tocá "Save and Deploy". En un minuto te da la dirección.
+
+PASO 3: PONERLE TU CODIGO DE INVITACION (importante, hacelo antes de registrarte)
+1. En Cloudflare entrá al proyecto casino, "Settings", "Variables and Secrets".
+2. Agregá una variable llamada INVITE_CODE con el código que quieras (por ejemplo
+   AMIGOS2026) y guardá. Si hace falta, volvé a desplegar.
+3. Abrí tu dirección, registrate con ese código y quedás como dueño. Después pasales
+   el mismo código a tus amigos. Desde el Panel del dueño podés cambiarlo cuando quieras.
+   (Opcional: otra variable CASINO_NAME para cambiar el nombre que se ve.)
+
+DESPUES
+Cada vez que cambies algo en GitHub, Cloudflare lo actualiza solo. Las cuentas y fichas
+NO se borran al actualizar. Para ver y respaldar los datos, andá a "Durable Objects"
+en el panel de Cloudflare. Si querés una dirección propia (tucasino.com), se agrega
+en Settings, "Domains & Routes".
+
+Probarlo en tu compu antes (opcional, hace falta Node.js): abrí una terminal en la
+carpeta, escribí  npm install  y después  npm run dev.  Para correr las pruebas de
+azar y pagos: npm test.
+
+LIMITES DEL PLAN GRATIS
+Alcanza de sobra para vos y tus amigos (miles de jugadas por día). Si algún día
+Cloudflare corta por uso, el plan pago cuesta 5 dólares por mes.

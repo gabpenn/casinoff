@@ -1,0 +1,15 @@
+{
+  "name": "casino",
+  "version": "2.0.0",
+  "description": "Casino con fichas virtuales (sin dinero real), listo para Cloudflare.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --disable-warning=ExperimentalWarning test/rtp.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
